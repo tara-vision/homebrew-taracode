@@ -2,7 +2,7 @@ class Taracode < Formula
   desc "AI-powered CLI assistant for software development (Claude Code-like tool)"
   homepage "https://github.com/tara-vision/taracode"
   url "https://github.com/tara-vision/taracode/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "4dd5c364417f9de88a537417765d4975dfd1d9e25c9904f70fb1f7eb8bf94191"
+  sha256 "dd2297e11800e22d747e67132336520274e9cbc3b722a00c8af0dfc2b462ded6"
   license "Apache-2.0"
 
   depends_on "go" => :build
