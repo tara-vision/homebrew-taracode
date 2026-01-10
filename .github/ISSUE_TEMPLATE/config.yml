@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Application Bug or Feature Request
+    url: https://github.com/tara-vision/taracode/issues/new/choose
+    about: For issues with Tara Code functionality (not installation), please use the main repository
+  - name: Security Vulnerability
+    url: https://github.com/tara-vision/taracode/security/advisories/new
+    about: Please report security vulnerabilities through GitHub's private reporting feature
