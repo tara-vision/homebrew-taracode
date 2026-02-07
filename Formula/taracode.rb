@@ -1,24 +1,24 @@
 class Taracode < Formula
   desc "DevOps & Cloud AI Assistant - Kubernetes, Terraform, Docker, multi-cloud"
   homepage "https://github.com/tara-vision/taracode"
-  version "2.0.3"
+  version "2.0.4"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/tara-vision/taracode/releases/download/v2.0.3/taracode-darwin-arm64"
-      sha256 "13aa3767515ee783ca2934609dbfbab2816f1f0d554f6e3529b5b34733390906"
+      url "https://github.com/tara-vision/taracode/releases/download/v2.0.4/taracode-darwin-arm64"
+      sha256 "1fd028827bb26d411f75fe2039519976569e4d12935205c78b20e650cbdcc377"
     end
     on_intel do
-      url "https://github.com/tara-vision/taracode/releases/download/v2.0.3/taracode-darwin-amd64"
-      sha256 "6b390d321d3eb89224a935a99f2b1526626f7ab0098eba773deafd99f5b97de5"
+      url "https://github.com/tara-vision/taracode/releases/download/v2.0.4/taracode-darwin-amd64"
+      sha256 "fb133c46a25fabf62018bdb9f416f437e673041726b3e273b3cddba562f77b9c"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/tara-vision/taracode/releases/download/v2.0.3/taracode-linux-amd64"
-      sha256 "0cee541073084fef2417b04277a020d550ee28cc49be7dcc8ad48a4b3d58b9e4"
+      url "https://github.com/tara-vision/taracode/releases/download/v2.0.4/taracode-linux-amd64"
+      sha256 "2618ffa5b8d89778511b9970a1f622b70eee804364da3cc03897444055eb77c8"
     end
   end
 
