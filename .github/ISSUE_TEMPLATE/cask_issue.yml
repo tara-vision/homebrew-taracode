@@ -1,0 +1,71 @@
+name: Cask issue
+description: Report a problem installing or upgrading taracode through this tap
+title: "[Cask]: "
+labels: ["cask"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. For problems with taracode after installation, please use the
+        [main repository](https://github.com/tara-vision/taracode/issues) instead.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened
+      placeholder: Describe the problem.
+    validations:
+      required: true
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Kind of problem
+      options:
+        - Installation fails
+        - Upgrade fails
+        - Checksum mismatch
+        - Binary is quarantined or will not start
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command run
+      placeholder: "brew install --cask tara-vision/taracode/taracode"
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: The full output, including any error message.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system and version
+      description: "`sw_vers -productVersion` on macOS, or the distribution and version on Linux"
+      placeholder: "macOS 26.0"
+    validations:
+      required: true
+  - type: input
+    id: brew-version
+    attributes:
+      label: Homebrew version
+      description: Output of `brew --version`
+      placeholder: "Homebrew 7.0.6"
+    validations:
+      required: true
+  - type: dropdown
+    id: architecture
+    attributes:
+      label: Architecture
+      options:
+        - Apple Silicon (arm64)
+        - Intel Mac (x86_64)
+        - Linux arm64
+        - Linux x86_64
+    validations:
+      required: true
