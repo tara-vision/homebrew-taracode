@@ -1,0 +1,52 @@
+# Rendered by tools/rendercask in tara-vision/taraengine at every release; edit the template there, not this file.
+cask "taraengine" do
+  version "0.3.0"
+  sha256 "c221b92e5221f39b3e338432b4244c49acd18da17ccc47c6cc2d20266ab80461"
+
+  url "https://github.com/tara-vision/taraengine/releases/download/v#{version}/taraengine-darwin-arm64"
+  name "taraengine"
+  desc "Local OpenAI-compatible inference engine built on llama.cpp"
+  homepage "https://engine.tara.vision/"
+
+  livecheck do
+    skip "Rendered at every release."
+  end
+
+  depends_on arch: :arm64
+  depends_on macos: :ventura
+
+  binary "taraengine-darwin-arm64", target: "taraengine"
+
+  # Inside Homebrew's sandbox launchd refuses to load the agent: a first install starts it at the next login or with the
+  # first taraengine command. An upgrade finds the agent loaded and down, and starts it on the new binary.
+  postflight_steps do
+    run "{{HOMEBREW_PREFIX}}/bin/taraengine",
+        args:           ["service", "install", "--binary", "{{HOMEBREW_PREFIX}}/bin/taraengine"],
+        print_stdout:   true,
+        writable_paths: ["Library/LaunchAgents", "Library/Logs/taraengine"],
+        writable_base:  :home
+  end
+
+  # This runs after the binary is unlinked. The agent exits cleanly on SIGTERM, and its KeepAlive restarts it only after
+  # a crash, so it stays down; an upgrade's install step then starts it on the new binary.
+  uninstall_postflight_steps do
+    run "/bin/sh",
+        args:         ["-c", "launchctl kill SIGTERM gui/$(id -u)/vision.tara.taraengine 2>/dev/null"],
+        must_succeed: false
+    remove "Library/LaunchAgents/vision.tara.taraengine.plist", base: :home
+  end
+
+  zap trash: [
+    "~/.config/taraengine",
+    "~/Library/Application Support/taraengine",
+    "~/Library/Logs/taraengine",
+  ]
+
+  caveats <<~EOS
+    taraengine runs as a login service. It starts with your first command, for example:
+
+      taraengine pull gemma4:12b
+
+    `taraengine service status` shows it, `taraengine service stop` turns it off.
+  EOS
+end
