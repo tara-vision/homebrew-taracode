@@ -42,7 +42,7 @@ brew install --cask tara-vision/taracode/taraengine        # Apple Silicon Macs
 curl -fsSL https://engine.tara.vision/install.sh | bash    # Linux
 taraengine pull gemma4:12b       # 16 GB machines
 taraengine pull glm-4.7-flash    # 32 GB machines
-taraengine pull qwen3.6:35b      # 48 GB and up
+taraengine pull gemma4:31b       # 48 GB and up
 ```
 
 An Intel Mac has no engine build in this release: run taracode against another OpenAI-compatible server there,
