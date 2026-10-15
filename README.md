@@ -34,14 +34,19 @@ formula (retired with taracode 2.1.0)? Run `brew uninstall taracode` once, then 
 
 ## Requirements
 
-taracode runs on taraengine, installed from this tap too, with a model from the engine's catalog:
+taracode runs on taraengine, with a model from the engine's catalog. The engine runs on Apple Silicon Macs,
+installed from this tap too, and on NVIDIA Linux machines, installed by its own script:
 
 ```bash
-brew install --cask tara-vision/taracode/taraengine
+brew install --cask tara-vision/taracode/taraengine        # Apple Silicon Macs
+curl -fsSL https://engine.tara.vision/install.sh | bash    # Linux
 taraengine pull gemma4:12b       # 16 GB machines
 taraengine pull glm-4.7-flash    # 32 GB machines
 taraengine pull qwen3.6:35b      # 48 GB and up
 ```
+
+An Intel Mac has no engine build in this release: run taracode against another OpenAI-compatible server there,
+with `--host`.
 
 taracode finds the engine at `http://127.0.0.1:8272` without configuration. `taracode doctor` checks the
 engine, the pulled models and the machine's RAM tier, and names the catalog's model for it when none is
@@ -51,7 +56,7 @@ configured; which models actually do the work is measured on the published
 ## taraengine
 
 The tap also carries [taraengine](https://github.com/tara-vision/taraengine), the Tara Vision inference engine: a
-local, private and OpenAI-compatible server built on llama.cpp. taracode runs on it since 3.3.0.
+local, private and OpenAI-compatible server built on llama.cpp. taracode has run on it since 3.3.0.
 
 ```bash
 brew install --cask tara-vision/taracode/taraengine
