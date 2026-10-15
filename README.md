@@ -2,8 +2,8 @@
 
 The Homebrew tap for [taracode](https://github.com/tara-vision/taracode), the local-first DevOps operator:
 a terminal agent that investigates Kubernetes, Terraform, Docker and cloud accounts by default, changes them
-only through an explicit policy, and runs on [Ollama](https://ollama.com) with open models. No cloud AI,
-no telemetry, MIT licensed.
+only through an explicit policy, and runs on [taraengine](https://engine.tara.vision), the Tara Vision inference
+engine, with open models. No cloud AI, no telemetry, MIT licensed.
 
 ## Install
 
@@ -34,23 +34,24 @@ formula (retired with taracode 2.1.0)? Run `brew uninstall taracode` once, then 
 
 ## Requirements
 
-taracode talks to a local Ollama server and needs a model with tool calling:
+taracode runs on taraengine, installed from this tap too, with a model from the engine's catalog:
 
 ```bash
-brew install ollama
-ollama pull gemma4:12b       # 16 GB machines
-ollama pull glm-4.7-flash    # 32 GB machines
-ollama pull qwen3.6:35b      # 48 GB and up
+brew install --cask tara-vision/taracode/taraengine
+taraengine pull gemma4:12b       # 16 GB machines
+taraengine pull glm-4.7-flash    # 32 GB machines
+taraengine pull qwen3.6:35b      # 48 GB and up
 ```
 
-`taracode doctor` checks the server, the installed models and the host's RAM tier, and names the
-recommended model when none is configured. The recommendations come from taracode's model registry and
-its published [scoreboard](https://code.tara.vision/evals).
+taracode finds the engine at `http://127.0.0.1:8272` without configuration. `taracode doctor` checks the
+engine, the pulled models and the machine's RAM tier, and names the catalog's model for it when none is
+configured; which models actually do the work is measured on the published
+[scoreboard](https://code.tara.vision/evals).
 
 ## taraengine
 
 The tap also carries [taraengine](https://github.com/tara-vision/taraengine), the Tara Vision inference engine: a
-local, private and OpenAI-compatible server built on llama.cpp. taracode's next release runs on it.
+local, private and OpenAI-compatible server built on llama.cpp. taracode runs on it since 3.3.0.
 
 ```bash
 brew install --cask tara-vision/taracode/taraengine

@@ -10,7 +10,7 @@ This repository holds only the Homebrew cask for taracode. Changes to taracode i
 ## Reporting issues
 
 - Installation, upgrade, checksum or quarantine problems with the cask: [open an issue here](https://github.com/tara-vision/homebrew-taracode/issues/new/choose).
-- Anything that happens after installation (commands, tools, models, Ollama): [tara-vision/taracode/issues](https://github.com/tara-vision/taracode/issues).
+- Anything that happens after installation (commands, tools, models, the engine): [tara-vision/taracode/issues](https://github.com/tara-vision/taracode/issues).
 
 ## The cask is generated
 
