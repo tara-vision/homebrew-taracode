@@ -4,13 +4,14 @@ Thank you for helping keep the taracode tap healthy.
 
 ## Scope
 
-This repository holds only the Homebrew cask for taracode. Changes to taracode itself belong in the
-[main repository](https://github.com/tara-vision/taracode).
+This repository holds only the Homebrew casks for taracode and taraengine. Changes to taracode itself belong in
+the [main repository](https://github.com/tara-vision/taracode), and changes to the engine in
+[tara-vision/taraengine](https://github.com/tara-vision/taraengine).
 
 ## Reporting issues
 
 - Installation, upgrade, checksum or quarantine problems with the cask: [open an issue here](https://github.com/tara-vision/homebrew-taracode/issues/new/choose).
-- Anything that happens after installation (commands, tools, models, Ollama): [tara-vision/taracode/issues](https://github.com/tara-vision/taracode/issues).
+- Anything that happens after installation (commands, tools, models): [tara-vision/taracode/issues](https://github.com/tara-vision/taracode/issues); the engine itself: [tara-vision/taraengine/issues](https://github.com/tara-vision/taraengine/issues).
 
 ## The cask is generated
 
