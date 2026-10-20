@@ -1,7 +1,7 @@
 # Rendered by tools/rendercask in tara-vision/taraengine at every release; edit the template there, not this file.
 cask "taraengine" do
-  version "0.3.1"
-  sha256 "ff0d37dcc2788c9a60214d6601dd539acd3c2754ab8ac7ae03a9399d1d014287"
+  version "0.4.0"
+  sha256 "25f7c362cb4826306c1ccdfda387118137783c6b8516a8e96e92515c66c1d406"
 
   url "https://github.com/tara-vision/taraengine/releases/download/v#{version}/taraengine-darwin-arm64"
   name "taraengine"
